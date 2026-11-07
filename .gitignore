@@ -18,6 +18,14 @@ node_modules/
 dist/
 build/
 out/
+_pending_delete/
+/docs/findings/
+/docs/progress.md
+inputs/
+*.pptx
+*.potx
+*.pdf
+.pytest_cache/
 .next/
 .wrangler/
 __pycache__/

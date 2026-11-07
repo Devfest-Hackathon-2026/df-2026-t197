@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "title": "輪講スライド生成の機能試験",
+  "theme": { "fontFace": "Yu Gothic", "titlePt": 32, "bodyPt": 24 },
+  "provenance": { "producer": "hand-authored dummy fixture", "model": "none", "prompt": "機能確認用のダミー資料。論文紹介の品質を示すものではない。" },
+  "slides": [
+    {
+      "id": "cover", "title": "輪講スライド生成の試作", "layout": "cover",
+      "body": "編集可能なPPTXを作る\n文字・表・グラフ・ノートを確認する",
+      "notes": "ダミー資料によるコードの機能試験。生成AIは呼び出していない。", "elements": []
+    },
+    {
+      "id": "purpose", "title": "生成結果を3つの観点で確認する", "layout": "body",
+      "body": "内容：根拠と説明が一致しているか\n表示：文字や図を読めるか\n編集：後から変更できるか",
+      "sources": ["チームが定めた初期の評価方針。論文の主張ではない。"], "elements": []
+    },
+    {
+      "id": "figure", "title": "画像と編集可能な図形を配置する", "layout": "figure",
+      "notes": "左の画像は配置試験用の自作64×32ピクセル画像。説明図や論文の図の代用ではない。",
+      "elements": [
+        { "id": "image", "type": "image", "x": 0.7, "y": 1.9, "w": 3, "h": 3, "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAIAAAAt/+nTAAAAUElEQVR4nNXOQREAIAzAsFIJeMQE6hGxB9coyNrnUiZxEidxEidxEidxEidxEidxEidxEidxEidxEidxEidxEidxEidxEidxEidxEidxEidxEidxEufvwNQD0W0BMU2/VYsAAAAASUVORK5CYII=", "alt": "画像配置試験用の自作64×32ピクセルPNG" },
+        { "id": "box", "type": "shape", "shape": "rect", "x": 4.4, "y": 2, "w": 7.5, "h": 2.4, "fill": "EDF4F5" },
+        { "id": "description", "type": "text", "x": 4.8, "y": 2.4, "w": 6.7, "h": 1.5, "text": "この文章と枠は\nPowerPointで編集できる" },
+        { "id": "caption", "type": "text", "x": 0.7, "y": 5.5, "w": 11.8, "h": 0.8, "text": "画像は配置・サイズを編集する。画像内の内容は別扱い。" }
+      ]
+    },
+    {
+      "id": "table", "title": "表の内容を後から編集する", "layout": "comparison",
+      "elements": [
+        { "id": "comparison", "type": "table", "x": 0.8, "y": 1.8, "w": 11.7, "h": 3.6, "fontSize": 22, "rows": [["項目", "確認する操作"], ["文字", "本文を書き換える"], ["表", "セルの値を変える"], ["グラフ", "系列データを変える"]] },
+        { "id": "note", "type": "text", "x": 0.8, "y": 5.8, "w": 11.5, "h": 0.7, "text": "内部構造の確認と、実際の編集操作を分けて記録する。" }
+      ]
+    },
+    {
+      "id": "chart", "title": "系列データを持つグラフを出力する", "layout": "results",
+      "sources": ["動作試験用の架空データ。性能評価の結果ではない。"],
+      "elements": [
+        { "id": "result", "type": "chart", "chartType": "bar", "x": 0.8, "y": 1.8, "w": 11.7, "h": 4.6, "labels": ["試験A", "試験B", "試験C"], "series": [{ "name": "架空の値", "values": [3, 5, 4] }], "fontSize": 20 }
+      ]
+    }
+  ]
+}
