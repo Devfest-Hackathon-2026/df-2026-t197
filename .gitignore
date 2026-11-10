@@ -33,6 +33,9 @@ __pycache__/
 .venv/
 venv/
 
+# 図のPNG（docs/images/architecture.svgから作る）
+docs/images/*.png
+
 # OS とエディタ
 .DS_Store
 Thumbs.db

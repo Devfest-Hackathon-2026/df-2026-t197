@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5F6368"/>
+    </marker>
+    <style>
+      text { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif; fill: #202124; }
+      .title { font-size: 30px; font-weight: 700; }
+      .h { font-size: 22px; font-weight: 700; }
+      .b { font-size: 18px; }
+      .s { font-size: 16px; fill: #5F6368; }
+      .mono { font-family: "SF Mono", Menlo, monospace; font-size: 20px; font-weight: 700; fill: #1A73E8; }
+      .label { font-size: 16px; fill: #3C4043; }
+      .white { fill: #FFFFFF; }
+      .line { stroke: #5F6368; stroke-width: 2.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+  <text x="40" y="62" class="title">Research Slides アーキテクチャ</text>
+
+  <!-- 利用者 -->
+  <rect x="40" y="150" width="240" height="170" rx="14" fill="#FEF7E0" stroke="#F9AB00" stroke-width="2"/>
+  <text x="160" y="198" text-anchor="middle" class="h">利用者</text>
+  <text x="160" y="240" text-anchor="middle" class="b">短い依頼</text>
+  <text x="160" y="270" text-anchor="middle" class="b">論文・参考PPTX</text>
+
+  <!-- 出力 -->
+  <rect x="40" y="400" width="240" height="160" rx="14" fill="#E6F4EA" stroke="#34A853" stroke-width="2"/>
+  <text x="160" y="448" text-anchor="middle" class="h">編集可能なPPTX</text>
+  <text x="160" y="490" text-anchor="middle" class="b">PowerPointで</text>
+  <text x="160" y="520" text-anchor="middle" class="b">そのまま直せる</text>
+
+  <!-- 考え方 -->
+  <rect x="40" y="660" width="240" height="160" rx="14" fill="#F8F9FA" stroke="#DADCE0" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="160" y="704" text-anchor="middle" class="h">役割の分担</text>
+  <text x="160" y="744" text-anchor="middle" class="b">判断はAIとskill</text>
+  <text x="160" y="776" text-anchor="middle" class="b">決まった処理は</text>
+  <text x="160" y="804" text-anchor="middle" class="b">サーバー</text>
+
+  <!-- AIエージェント -->
+  <rect x="380" y="150" width="280" height="410" rx="14" fill="#F3E8FD" stroke="#A142F4" stroke-width="2"/>
+  <text x="520" y="196" text-anchor="middle" class="h">MCP対応AIエージェント</text>
+  <text x="520" y="226" text-anchor="middle" class="s">（Claude Code など）</text>
+  <rect x="400" y="256" width="240" height="110" rx="10" fill="#FFFFFF" stroke="#C58AF9" stroke-width="1.5"/>
+  <text x="520" y="298" text-anchor="middle" class="h">自作skill</text>
+  <text x="520" y="334" text-anchor="middle" class="b">構成・説明・出典を判断</text>
+  <rect x="400" y="392" width="240" height="140" rx="10" fill="#FFFFFF" stroke="#C58AF9" stroke-width="1.5"/>
+  <text x="520" y="436" text-anchor="middle" class="h">deck.json</text>
+  <text x="520" y="466" text-anchor="middle" class="h">編集プラン</text>
+  <text x="520" y="504" text-anchor="middle" class="b">を作ってツールに渡す</text>
+
+  <!-- GitHub -->
+  <rect x="380" y="700" width="280" height="100" rx="14" fill="#F8F9FA" stroke="#5F6368" stroke-width="2"/>
+  <text x="520" y="742" text-anchor="middle" class="h">GitHub リポジトリ</text>
+  <text x="520" y="774" text-anchor="middle" class="s">ソースコード・Dockerfile</text>
+
+  <!-- Google Cloud -->
+  <rect x="720" y="90" width="850" height="780" rx="18" fill="#F1F3F4" stroke="#DADCE0" stroke-width="2"/>
+  <text x="744" y="124" class="h" fill="#5F6368" style="fill:#5F6368">Google Cloud</text>
+
+  <!-- Cloud Run -->
+  <rect x="745" y="140" width="800" height="440" rx="14" fill="#FFFFFF" stroke="#1A73E8" stroke-width="3"/>
+  <rect x="745" y="140" width="800" height="48" rx="14" fill="#1A73E8"/>
+  <rect x="745" y="170" width="800" height="18" fill="#1A73E8"/>
+  <text x="769" y="172" class="h white" style="fill:#FFFFFF">Cloud Run</text>
+  <text x="900" y="172" class="b white" style="fill:#FFFFFF">research-slides（Node.js コンテナ）</text>
+
+  <!-- 入口 -->
+  <rect x="770" y="205" width="220" height="80" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.5"/>
+  <text x="880" y="238" text-anchor="middle" class="mono">/mcp</text>
+  <text x="880" y="268" text-anchor="middle" class="b">MCPツール 7種</text>
+  <rect x="770" y="305" width="220" height="80" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.5"/>
+  <text x="880" y="338" text-anchor="middle" class="mono">/render</text>
+  <text x="880" y="368" text-anchor="middle" class="b">REST（審査・デモ用）</text>
+  <rect x="770" y="460" width="220" height="80" rx="10" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.5"/>
+  <text x="880" y="493" text-anchor="middle" class="mono">/files</text>
+  <text x="880" y="523" text-anchor="middle" class="b">アップロード・取得</text>
+
+  <!-- 共通コア -->
+  <rect x="1030" y="205" width="490" height="215" rx="10" fill="#FFFFFF" stroke="#1A73E8" stroke-width="1.5"/>
+  <text x="1275" y="240" text-anchor="middle" class="h">共通コア</text>
+  <rect x="1048" y="258" width="218" height="66" rx="8" fill="#F8F9FA" stroke="#DADCE0"/>
+  <text x="1157" y="298" text-anchor="middle" class="b">スキーマ検査・警告</text>
+  <rect x="1284" y="258" width="218" height="66" rx="8" fill="#F8F9FA" stroke="#DADCE0"/>
+  <text x="1393" y="298" text-anchor="middle" class="b">PPTX生成</text>
+  <rect x="1048" y="338" width="218" height="66" rx="8" fill="#F8F9FA" stroke="#DADCE0"/>
+  <text x="1157" y="378" text-anchor="middle" class="b">構造検査</text>
+  <rect x="1284" y="338" width="218" height="66" rx="8" fill="#F8F9FA" stroke="#DADCE0"/>
+  <text x="1393" y="378" text-anchor="middle" class="b">既存PPTXの直接編集</text>
+
+  <!-- 一時ファイル -->
+  <rect x="1030" y="460" width="490" height="80" rx="10" fill="#FFFFFF" stroke="#1A73E8" stroke-width="1.5"/>
+  <text x="1275" y="497" text-anchor="middle" class="h">一時ファイル</text>
+  <text x="1275" y="526" text-anchor="middle" class="s">メモリ上・30分で削除</text>
+
+  <!-- デプロイ -->
+  <text x="769" y="672" class="b" style="fill:#5F6368">デプロイ（gcloud run deploy --source）</text>
+  <rect x="770" y="700" width="240" height="100" rx="14" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2"/>
+  <text x="890" y="742" text-anchor="middle" class="h">Cloud Build</text>
+  <text x="890" y="774" text-anchor="middle" class="s">コンテナをビルド</text>
+  <rect x="1070" y="700" width="260" height="100" rx="14" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2"/>
+  <text x="1200" y="742" text-anchor="middle" class="h">Artifact Registry</text>
+  <text x="1200" y="774" text-anchor="middle" class="s">イメージを保管</text>
+
+  <!-- 矢印: 利用者 ⇄ エージェント -->
+  <line x1="280" y1="235" x2="378" y2="235" class="line" marker-end="url(#arrow)"/>
+  <text x="330" y="222" text-anchor="middle" class="label">依頼</text>
+  <line x1="380" y1="480" x2="282" y2="480" class="line" marker-end="url(#arrow)"/>
+  <text x="330" y="467" text-anchor="middle" class="label">PPTX</text>
+
+  <!-- 矢印: エージェント ⇄ Cloud Run -->
+  <line x1="660" y1="245" x2="768" y2="245" class="line" marker-end="url(#arrow)"/>
+  <text x="715" y="232" text-anchor="middle" class="label">MCP</text>
+  <line x1="770" y1="500" x2="662" y2="500" class="line" marker-end="url(#arrow)"/>
+  <text x="715" y="487" text-anchor="middle" class="label">取得</text>
+
+  <!-- 矢印: Cloud Run 内 -->
+  <line x1="990" y1="245" x2="1028" y2="245" class="line" marker-end="url(#arrow)"/>
+  <line x1="990" y1="345" x2="1028" y2="345" class="line" marker-end="url(#arrow)"/>
+  <line x1="1275" y1="420" x2="1275" y2="458" class="line" marker-end="url(#arrow)"/>
+  <line x1="1030" y1="500" x2="992" y2="500" class="line" marker-end="url(#arrow)"/>
+
+  <!-- 矢印: デプロイ -->
+  <line x1="660" y1="750" x2="768" y2="750" class="line" marker-end="url(#arrow)"/>
+  <line x1="1010" y1="750" x2="1068" y2="750" class="line" marker-end="url(#arrow)"/>
+  <path d="M1330,750 L1440,750 L1440,582" class="line" marker-end="url(#arrow)"/>
+  <text x="1452" y="680" class="label">配備</text>
+</svg>

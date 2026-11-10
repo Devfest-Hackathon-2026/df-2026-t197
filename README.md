@@ -4,6 +4,12 @@
 
 第一版はローカルCLIと自作skillの開発者向けプレビューです。論文を渡すだけの自動生成サービス、任意テンプレートの完全編集、無修正で発表できる品質の保証は、現在の対応範囲に含みません。
 
+## アーキテクチャ
+
+![アーキテクチャ図：利用者の依頼をAIエージェントと自作skillが構成に落とし、MCPでCloud Run上の生成・検査・編集サーバーを呼んで編集可能なPPTXを返す。デプロイはGitHubからCloud BuildとArtifact Registryを経てCloud Runへ](docs/images/architecture.svg)
+
+図の元データは`docs/images/architecture.svg`。提出資料用のPNGは、ChromeのヘッドレスモードでこのSVGから作る（リポジトリには置かない）。
+
 ## 最初に読むもの
 
 - [現在の対応機能・残課題](docs/status.md)
