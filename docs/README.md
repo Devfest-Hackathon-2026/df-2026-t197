@@ -5,7 +5,9 @@
 ```text
 src/                 実行コード
   cli.mjs            コマンド入口
-  server.mjs         新規生成HTTPの入口
+  server.mjs         HTTPの入口（REST・MCP・一時ファイル）
+  mcp.mjs            MCPツールの定義
+  files.mjs          MCP/HTTP向けの一時ファイル置き場
   pptx/read/         PPTX索引
   pptx/edit/         XMLの限定編集と保存
   pdf/               PDF抽出と根拠付き生成
@@ -26,7 +28,7 @@ node_modules/        ローカル依存（Git対象外）
 ## 文書の読み方
 
 1. [status.md](status.md): 最新の実装範囲と残課題。
-2. 実装の契約: [読取](pptx-reader.md)、[直接編集](pptx-edit.md)、[PDF](pdf-paper-pipeline.md)。
+2. 実装の契約: [読取](pptx-reader.md)、[直接編集](pptx-edit.md)、[PDF](pdf-paper-pipeline.md)、[MCPサーバー](mcp.md)。
 3. 設計上の目標: [全体設計](replacement-design.md)、[受入試験案](replacement-acceptance.md)。全項目が合格した一覧ではない。
 4. 初期試作: [仕様](specification.md)、[受入条件](acceptance.md)。初期範囲の記録として保持。
 5. 調査: [機能対応表](source-capability-map.md)、[前提整理](replacement-planning.md)、[利用物](dependencies.md)。

@@ -9,9 +9,11 @@
 | JSZip | PPTX内部の読み取り | MIT または GPL-3.0-or-later。MITを選択 | ZIP内の部品確認に使用 |
 | @xmldom/xmldom | XML参照の解析 | MIT | 正規表現だけでPPTX構造を判定しないため |
 | image-size | 画像寸法の取得、生成ライブラリの間接依存 | MIT | 既知の脆弱性を避けるため2.0.4をoverride。PNG/JPEGの縦横比を維持するため直接も利用 |
+| @modelcontextprotocol/sdk | MCPサーバー（Streamable HTTP） | MIT | MCPの公式SDK。プロトコル処理を自作しない。ツールの入力スキーマは既存のJSON Schemaをそのまま渡す |
+| zod | MCP SDKの必須の相手側依存 | MIT | SDKが要求するため直接依存に置く。自作コードでは使わない |
 | Node.js | CLI・HTTPサービス | 配布物のライセンスに従う | ローカルとCloud Runでコードを共有できる |
 
-実際の版はpackage-lock.jsonを正本とする。ライセンス表記はインストール後にパッケージのメタデータと同梱ライセンスで確認する。
+実際の版はpackage-lock.jsonを正本とする。2026-11-10追加: @modelcontextprotocol/sdk 1.32.2、zod 4.6.7。npmの監査は脆弱性0件。ライセンス表記はインストール後にパッケージのメタデータと同梱ライセンスで確認する。
 
 2026-11-06確認版: PptxGenJS 4.0.0、Ajv 8.20.0、JSZip 3.10.2、@xmldom/xmldom 0.9.12、image-size 2.0.4。npmのインストール監査は脆弱性0件。画像は実寸を取得してcontain相当の配置を計算する。ライブラリの`sizing`指定だけではPowerPoint上の縦横比が保たれなかったため、配置を独自に計算して試験する。
 
