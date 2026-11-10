@@ -105,6 +105,8 @@ CLIは元入力と同じ場所への出力、既存ファイルの上書きを�
 
 ## 9. Cloud RunのAPI契約
 
+2026-11-10追記: Cloud Runでは、AIエージェント向けのMCP（`POST /mcp`）を主な入口とし、REST（`POST /render`）を審査・Webデモ向けに残す。両方とも同じ共通コードを呼ぶ。ツール・ファイル受け渡し・認証は[mcp.md](mcp.md)。以下は初版のREST契約。
+
 設計: `GET /health`、`POST /render`。`POST /render` の本文はdeck.json、成功時はPPTX、失敗はJSONエラー。初期コードはローカルサービスとして検証し、デプロイ完了とは区別する。
 
 - `PORT`環境変数、初期値8080。

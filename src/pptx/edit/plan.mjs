@@ -5,7 +5,7 @@ const shape={type:'object',additionalProperties:false,required:['id','parents'],
 const paragraphProperties={op:{const:'replace-paragraph-text'},slide:ref,shape,paragraph:{type:'integer',minimum:0,maximum:10000},expectedText:{type:'string',maxLength:100000},text:{type:'string',maxLength:100000},styleFromRun:{type:'integer',minimum:0,maximum:10000}};
 const boxProperties={xEmu:{type:'integer',minimum:0,maximum:2147483647},yEmu:{type:'integer',minimum:0,maximum:2147483647},widthEmu:{type:'integer',minimum:1,maximum:2147483647},heightEmu:{type:'integer',minimum:1,maximum:2147483647}};
 const imageProperties={alt:{type:'string',maxLength:2000},data:{type:'string',minLength:1,maxLength:11000000},box:{type:'object',additionalProperties:false,required:Object.keys(boxProperties),properties:boxProperties}};
-const schema = {type:'object',additionalProperties:false,required:['version','sourceSha256','operations'],properties:{
+export const editPlanSchema = {type:'object',additionalProperties:false,required:['version','sourceSha256','operations'],properties:{
   version:{const:1},sourceSha256:{type:'string',pattern:'^[a-fA-F0-9]{64}$'},operations:{type:'array',minItems:1,maxItems:100,items:{oneOf:[
     {type:'object',additionalProperties:false,required:['op','slide','shape'],properties:{op:{const:'delete-shape'},slide:ref,shape}},
     {type:'object',additionalProperties:false,required:['op','slide','shape','fontFace','fontSizePt'],properties:{op:{const:'set-text-style'},slide:ref,shape,fontFace:{type:'string',minLength:1,maxLength:100},fontSizePt:{type:'number',minimum:8,maximum:96,multipleOf:0.5},removeBullets:{type:'boolean'},alignment:{enum:['left','center','right']}}},
@@ -25,7 +25,7 @@ const schema = {type:'object',additionalProperties:false,required:['version','so
     {type:'object',additionalProperties:false,required:['op','slide','shape','row','column','paragraph','expectedText','text'],properties:{...paragraphProperties,op:{const:'replace-table-cell-paragraph'},row:{type:'integer',minimum:0,maximum:10000},column:{type:'integer',minimum:0,maximum:10000}}}
   ]}}
 }};
-const validate = new Ajv({allErrors:true,strict:true}).compile(schema);
+const validate = new Ajv({allErrors:true,strict:true}).compile(editPlanSchema);
 export function validateEditPlan(plan) {
   if(!validate(plan)) throw new Error(`INVALID_EDIT_PLAN: ${JSON.stringify(validate.errors)}`);
   for(const op of plan.operations) {
